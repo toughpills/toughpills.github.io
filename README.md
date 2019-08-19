@@ -1,127 +1,106 @@
-# toughpills.github.io
-## python study daily 0815
+# This program demonstrates a function.
+# First, we define a function named welcome_message.
+def welcome_message():
+    print('This is Python course')
+    print('Welcome to this world')
+
+# Main program to call the welcome_message function.
+welcome_message()
+
+# This program demonstrates a function.
+# First, we define a function named welcome_message.
+def welcome_message():
+    print('This is Python course')
+    print('Welcome to this world')
+
+# Second, we define a function named get_name_target.
+def get_name():
+    name = input ("what is your name ")
+    return name  
 
 
-if 
-number = 23
-guess = int(input("enter an integer: "))
+# Main program to call the welcome_message and get_name function.
+welcome_message()
+name = get_name()
+print("Hi, ", name, ", So glad to see you in this class")
 
-if guess ==number:
-    print("congratulations, you have guessed it,"\
-          "but you cannot win any prizes.")
-elif guess < number:
-    print("sorry, it's a little higher than that,"\
-          "you can try again")
-else:
-   print("no, it is smaller than that,"\
-          "please try another time")
-print("DONE")
+# This program demonstrates a function.
+# First, we define a function named welcome_message.
+def welcome_message():
+    print('This is Python course')
+    print('Welcome to this world')
 
+# Second, we define a function named get_name_target.
+def get_name():
+    name = input ("what is your name ")
+    return name
+
+def get_target(name):
+    print("Welcome to AE8225", name)
+    target_project = int(input("What is your target score for project (0-100):"))
+    target_test = int(input("What is your target score for test (0-50):"))
+    total = (target_project/100)*50 + target_test
+    return total
+
+# Main program to call the functions.
+welcome_message()
+name = get_name()
+total = get_target(name)
+print(name, "Noted that your target total score is:", total, "Let's work together to achieve that")
+
+
+## if there are 3 coffee shops
+count = 1
+while count <= 3:
+    print ("input information of coffee shop NO. ", count)
+    horizonDist = int(input("Read horizonDist in meters: "))
+    vertDist = int(input("Read vertDist in meters: "))
+    dist = horizonDist + vertDist
+    print("dist from home to coffee shop NO. ", count, " is ", dist, "m")
+    count = count + 1
     
-####while
-number = 23
-running = True   ######a loop
-
-while running:
-    guess = int(input("enter an integer: "))
-    if guess == number:
-        print("congratulations, you guessed it.")
-        running = False   #### a loop tp stop here
-    elif guess != number:
-        print('please try again')
+    
+Number = 67
+print("Hi-Lo Number Guessing Game: between 0 and 100 inclusive.")
+guess= int(input("Guess a number: "))
+while 0 <= guess <= 100:
+    if guess > Number:
+        print("Guessed Too High.")
+    elif guess < Number:
+        print("Guessed Too Low.")
+    else: # correct guess, exit with break
+        print("You guessed it. The number was:",Number)
+        break  # keep going, get the next guess
+    guess= int(input("Guess a number: "))
 else:
-    print("the loop is over.")
-print("DONE")
+    print("A pity. You quit the game early, the number was:",Number)
 
 
-####while + break
-while True:
-    s = input("enter a word ")
-    if s == "quit":
-        break
-    print("the length of the word is ", len(s))
+# sum up a series of even numbers
+# make sure only even numbers contribute to sum
 
-####while + continue
-while True:
-    s = input("enter")
-    if s == "quit":
-        break
-    if len(s)<3:
-        continue
-    print("input is off sufficient")
+print ("Allow the user to enter a series of even integers. Sum them.")
+print ("Ignore non-even input. End input with a '.'")
+# initialize the input number and the sum
+number_str = input("Number: ")
+the_sum = 0
+# Stop if a period ( . ) is entered .
+# remember , number_str is a string until we convert it
+while number_str != "." :
+    number = int(number_str)
+    if number % 2 == 1: # number is not even ( it is odd)
+        print ("Error, only even numbers please.")
+        number_str = input("Number: ")
+        continue # if the number is not even , ignore it
+    the_sum += number
+    number_str = input("Number: ")
+print ("The sum is:",the_sum)
 
-####for
-for i in range(1,5):
-    print(i+1)
-else:
-    print(i)
+#get ship orientation from user
+while(True):
+  user_input = input("vertical or horizontal (v,h) ? ")
+  if user_input == "v" or user_input == "h":
+    break
+  else:
+    print ("Invalid input. Please only enter v or h")
 
-####def function
-def printMax(a,b):
-    if a>b:
-        print(a,"is maximum")
-    else:
-        print(b,"is maximum")
-
-##printMax(8,9) #调用的形式之一
-x = 8
-y = 9
-printMax(x,y) ##调用的形式之二
-
-####def 局部变量
-def function(x):
-    print("x is ", x)
-    x = 2
-    print('changed local x to', x)
-
-x = 3
-function(x)
-print("x is still ", x)
-
-####global语句可以为定义在函数外的变量赋值
-def func():
-    global x
-    print("x is ", x)
-    x = 2
-    print("changed local x to",x)
-x = 3
-func()
-print("x is now",x)
-
-####参数默认数值，要先声明没有默认值的参数，再声明有默认值的参数
-def say(meassage, times=1):
-    print(meassage*times)
-say("Chicken is not my style",5)
-
-
-####使用关键参数，使用关键词而非位置来给函数指定实参
-def fun(a, b = 2, c = 3):
-    print("a is", a,\
-          "b is",b,\
-          "c is",c)
-fun(1,4)
-fun(1, c = 4)
-
-
-######return 从一个函数返回或从函数返回一个值,没有return返回值的语句等价于return none。
-def maxmium(x,y,z):
-    return(max(x,y,z))    
-print(maxmium(2,3,4))
-
-######DocStrings：文档字符串'''    '''  help(printMax)抓取函数的属性，然后展示出来，q退出help
-def printMax(x,y):
-##        The two values must be integers.'''
-   x = int(x)
-   y = int(y)
-    if x > y:
-        print(x,"is maximum")
-    else:
-        print(y,"is maximum")
-printMax(77,88.2)
-
-######sys模块--system
-import sys
-print("the command line arguments are: ")
-for i in sys.argv:
-    print(i)
-print("\n\nThePYTHONPATH is",sys.path,"\n")
